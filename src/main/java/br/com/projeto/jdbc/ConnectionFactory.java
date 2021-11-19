@@ -25,6 +25,7 @@ public class ConnectionFactory {
 
         try {
            // Class.forName("org.postgresql.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/bdvendas","usuariocurso","1234");
         } catch (Exception e) {
             throw new RuntimeException("Erro de conexão",e);

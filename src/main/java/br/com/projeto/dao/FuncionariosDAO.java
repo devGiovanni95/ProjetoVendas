@@ -8,7 +8,10 @@ import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Funcionarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,7 +32,7 @@ public class FuncionariosDAO {
 
         try {
             // 1 passo - criar o comando sql
-            String sql = "insert into tb_ (nome, rg, cpf, email, senha, cargo, nivel_acesso, telefone, celular, "
+            String sql = "insert into tb_funcionarios(nome, rg, cpf, email, senha, cargo, nivel_acesso, telefone, celular, "
                     + "cep, endereco, numero, complemento, bairro, cidade, estado) "
                     + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -63,6 +66,55 @@ public class FuncionariosDAO {
 
         }
 
+    }
+
+    //Metodo listar todos od funcionarios
+    public List<Funcionarios> listarFuncionarios() {
+
+        try {
+
+            //1 passo criar a lista
+            List<Funcionarios> lista = new ArrayList<>();
+
+            //2 passo - criar o sql , organizar e executar.
+            String sql = "select * from tb_funcionarios";
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Funcionarios obj = new Funcionarios();
+
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+
+                obj.setSenha(rs.getString("senha"));
+                obj.setCargo(rs.getString("cargo"));
+                obj.setNivel_acesso(rs.getString("nivel_acesso"));
+
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setUf(rs.getString("estado"));
+
+                lista.add(obj);
+            }
+
+            return lista;
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            return null;
+        }
     }
 
  /*   //Metodo alterarCliente
@@ -124,5 +176,92 @@ public class FuncionariosDAO {
         }
 
     }*/
+
+    /*
+    *
+
+    //metodo consulta cliente por nome
+    public Clientes consultaPorNome(String nome) {
+
+        try {
+            //1 passo - criar o sql , organizar e executar.
+            String sql = "select * from tb_clientes where nome = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+
+            ResultSet rs = stmt.executeQuery();
+            Clientes obj = new Clientes();
+
+            if (rs.next()) {
+
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setUf(rs.getString("estado"));
+            }
+            return obj;
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Cliente não encontrado!!");
+            return null;
+        }
+    }
+
+    //metodo buscar cliente por nome
+    public List<Clientes> buscaClientePorNome(String nome) {
+
+        try {
+
+            //1 passo criar a lista
+            List<Clientes> lista = new ArrayList<>();
+
+            //2 passo - criar o sql , organizar e executar.
+            String sql = "select * from tb_clientes where nome like ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Clientes obj = new Clientes();
+
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setUf(rs.getString("estado"));
+
+                lista.add(obj);
+            }
+
+            return lista;
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro :" + erro);
+            return null;
+        }
+
+    }
+    * */
     
 }
