@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author  giovanni
+ * @author giovanni
  */
 public class FrmFuncionarios extends javax.swing.JFrame {
 
@@ -639,11 +639,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcidadeActionPerformed
 
     private void btnbuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaActionPerformed
-        // botao buscar cliente por nome     
+        // botao buscar funcionarios por nome     
 
         String nome = txtnome.getText();
-        Clientes obj = new Clientes();
-        ClientesDAO dao = new ClientesDAO();
+        Funcionarios obj = new Funcionarios();
+        FuncionariosDAO dao = new FuncionariosDAO();
 
         obj = dao.consultaPorNome(nome);
 
@@ -655,6 +655,12 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             txtrg.setText(obj.getRg());
             txtcpf.setText(obj.getCpf());
             txtemail.setText(obj.getEmail());
+
+            txtsenha.setText(obj.getSenha());
+            txtcargo.setText(obj.getCargo());
+            cbnivel.setSelectedItem(obj.getNivel_acesso());
+
+
             txtfixo.setText(obj.getTelefone());
             txtcel.setText(obj.getCelular());
             txtcep.setText(obj.getCep());
@@ -665,7 +671,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             txtcidade.setText(obj.getCidade());
             cbuf.setSelectedItem(obj.getUf());
         } else {
-            JOptionPane.showMessageDialog(null, "Funcionario não encontrado!");
+            JOptionPane.showMessageDialog(null, "Funcionário não encontrado!");
         }
 
     }//GEN-LAST:event_btnbuscaActionPerformed
@@ -674,8 +680,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         //Programacao do keypress
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Clientes obj = new Clientes();
-            ClientesDAO dao = new ClientesDAO();
+            Funcionarios obj = new Funcionarios();
+            FuncionariosDAO dao = new FuncionariosDAO();
             obj = dao.buscaCep(txtcep.getText());
 
             txtend.setText(obj.getEndereco());
@@ -691,19 +697,24 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // Botao pesquisar
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.buscaClientePorNome(nome);
+        FuncionariosDAO dao = new FuncionariosDAO();
+        List<Funcionarios> lista = dao.buscaFuncionarioPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaFuncionarios.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Funcionarios c : lista) {
             dados.addRow(new Object[]{
                     c.getId(),
                     c.getNome(),
                     c.getRg(),
                     c.getCpf(),
                     c.getEmail(),
+
+                    c.getSenha(),
+                    c.getCargo(),
+                    c.getNivel_acesso(),
+
                     c.getTelefone(),
                     c.getCelular(),
                     c.getCep(),
@@ -843,19 +854,24 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.buscaClientePorNome(nome);
+        FuncionariosDAO dao = new FuncionariosDAO();
+        List<Funcionarios> lista = dao.buscaFuncionarioPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaFuncionarios.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Funcionarios c : lista) {
             dados.addRow(new Object[]{
                     c.getId(),
                     c.getNome(),
                     c.getRg(),
                     c.getCpf(),
                     c.getEmail(),
+
+                    c.getSenha(),
+                    c.getCargo(),
+                    c.getNivel_acesso(),
+
                     c.getTelefone(),
                     c.getCelular(),
                     c.getCep(),

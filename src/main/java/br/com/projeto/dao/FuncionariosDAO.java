@@ -5,7 +5,9 @@
 package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
+import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Funcionarios;
+import br.com.projeto.model.WebServiceCep;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -185,21 +187,19 @@ public class FuncionariosDAO {
 
     }
 
- /*
-    /*
-    *
+
 
     //metodo consulta cliente por nome
-    public Clientes consultaPorNome(String nome) {
+    public Funcionarios consultaPorNome(String nome) {
 
         try {
             //1 passo - criar o sql , organizar e executar.
-            String sql = "select * from tb_clientes where nome = ?";
+            String sql = "select * from tb_funcionarios where nome = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
 
             ResultSet rs = stmt.executeQuery();
-            Clientes obj = new Clientes();
+            Funcionarios obj = new Funcionarios();
 
             if (rs.next()) {
 
@@ -208,6 +208,11 @@ public class FuncionariosDAO {
                 obj.setRg(rs.getString("rg"));
                 obj.setCpf(rs.getString("cpf"));
                 obj.setEmail(rs.getString("email"));
+
+                obj.setSenha(rs.getString("senha"));
+                obj.setCargo(rs.getString("cargo"));
+                obj.setNivel_acesso(rs.getString("nivel_acesso"));
+
                 obj.setTelefone(rs.getString("telefone"));
                 obj.setCelular(rs.getString("celular"));
                 obj.setCep(rs.getString("cep"));
@@ -221,34 +226,39 @@ public class FuncionariosDAO {
             return obj;
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Cliente não encontrado!!");
+            JOptionPane.showMessageDialog(null, "Funcionário não encontrado!!");
             return null;
         }
     }
 
-    //metodo buscar cliente por nome
-    public List<Clientes> buscaClientePorNome(String nome) {
+    //metodo buscar Funcionario por nome
+    public List<Funcionarios> buscaFuncionarioPorNome(String nome) {
 
         try {
 
             //1 passo criar a lista
-            List<Clientes> lista = new ArrayList<>();
+            List<Funcionarios> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
-            String sql = "select * from tb_clientes where nome like ?";
+            String sql = "select * from tb_funcionarios where nome like ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
 
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Clientes obj = new Clientes();
+                Funcionarios obj = new Funcionarios();
 
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));
                 obj.setRg(rs.getString("rg"));
                 obj.setCpf(rs.getString("cpf"));
                 obj.setEmail(rs.getString("email"));
+
+                obj.setSenha(rs.getString("senha"));
+                obj.setCargo(rs.getString("cargo"));
+                obj.setNivel_acesso(rs.getString("nivel_acesso"));
+
                 obj.setTelefone(rs.getString("telefone"));
                 obj.setCelular(rs.getString("celular"));
                 obj.setCep(rs.getString("cep"));
@@ -271,6 +281,30 @@ public class FuncionariosDAO {
         }
 
     }
-    * */
+    
+    //Busca por  cep
+
+
+    public Funcionarios buscaCep(String cep) {
+
+        WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
+
+
+        Funcionarios obj = new Funcionarios();
+
+        if (webServiceCep.wasSuccessful()) {
+            obj.setEndereco(webServiceCep.getLogradouroFull());
+            obj.setCidade(webServiceCep.getCidade());
+            obj.setBairro(webServiceCep.getBairro());
+            obj.setUf(webServiceCep.getUf());
+            return obj;
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
+            JOptionPane.showMessageDialog(null, "Descrição do erro: " + webServiceCep.getResultText());
+            return null;
+        }
+
+    }
+
     
 }
