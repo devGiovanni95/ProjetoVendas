@@ -4,6 +4,9 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.FuncionariosDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author geu_p
@@ -29,13 +32,13 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtsenha = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        txtemail = new javax.swing.JPasswordField();
+        txtsenha = new javax.swing.JPasswordField();
         btnentrar = new javax.swing.JButton();
         btnsair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seja bem vindo ao Sistema - Autenticação");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
@@ -64,18 +67,30 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("E-mail:");
 
-        txtsenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtsenha.addActionListener(new java.awt.event.ActionListener() {
+        txtemail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtsenhaActionPerformed(evt);
+                txtemailActionPerformed(evt);
             }
         });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel17.setText("Senha:");
 
+        txtsenha.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtsenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsenhaActionPerformed(evt);
+            }
+        });
+
         btnentrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnentrar.setText("ENTRAR");
+        btnentrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnentrarActionPerformed(evt);
+            }
+        });
 
         btnsair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnsair.setText("CANCELAR");
@@ -99,16 +114,16 @@ public class FrmLogin extends javax.swing.JFrame {
                         .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtsenha))
+                                .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnentrar, btnsair});
@@ -122,13 +137,14 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(btnentrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnentrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -138,13 +154,39 @@ public class FrmLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenhaActionPerformed
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtsenhaActionPerformed
+    }//GEN-LAST:event_txtemailActionPerformed
 
     private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsairActionPerformed
+
+    private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
+        // Botao entrar
+        
+        try {
+            String email, senha;
+            
+            email= txtemail.getText();
+            senha = txtsenha.getText();
+            
+            FuncionariosDAO dao = new FuncionariosDAO();
+            
+            dao.efetuarLogin(email, senha);
+            
+            //Comando para esconder a tela assim que abrir a de menu
+            this.dispose();
+            //depois disto precisamos clicar na tela que criamos de login e mudar a propriedade(defaultCloseOperation) para  (DISPOSE)
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro");
+        }
+    }//GEN-LAST:event_btnentrarActionPerformed
+
+    private void txtsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +230,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField txtemail;
-    private javax.swing.JTextField txtsenha;
+    private javax.swing.JTextField txtemail;
+    public javax.swing.JPasswordField txtsenha;
     // End of variables declaration//GEN-END:variables
 }
