@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Caio Duarte
+ * @author giovanni
  */
 public class Frmclientes extends javax.swing.JFrame {
 
