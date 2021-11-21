@@ -326,6 +326,10 @@ public class FuncionariosDAO {
                 
                 //Se efetuar o login mudar para a tela de menu
                 FrmMenu tela = new FrmMenu();
+                
+                //pegar no banco de dados o campo com o nome do usuario que fez o login
+                tela.usuarioLogado = rs.getString("nome");
+                
                 tela.setVisible(true);
             }else {
                 //Dados incorretos
