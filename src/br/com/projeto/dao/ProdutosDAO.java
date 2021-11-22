@@ -29,7 +29,7 @@ public class ProdutosDAO {
     }
 
     //Metodo Cadastrar Produtos
-    public void castrar(Produtos obj) {
+    public void cadastrar(Produtos obj) {
         try {
 
             // 1 passo Comando SQL

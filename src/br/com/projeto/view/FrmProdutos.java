@@ -7,8 +7,10 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.ClientesDAO;
 import br.com.projeto.dao.FornecedoresDAO;
+import br.com.projeto.dao.ProdutosDAO;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Fornecedores;
+import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Utilitarios;
 import java.awt.Color;
 import java.awt.Component;
@@ -469,27 +471,22 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdescricaoActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
-        // boto salvar
+        // botão salvar
 
-        Clientes obj = new Clientes();
+        Produtos obj = new Produtos();
+        obj.setDescrição(txtdescricao.getText());
+        obj.setPreco(Double.parseDouble(txtpreco.getText()));
+        obj.setQtd_estoque(Integer.parseInt(txtqtdestoque.getText()));
 
-        obj.setNome(txtdescricao.getText());
-        obj.setRg(txtrg.getText());
-        obj.setCpf(txtcpf.getText());
-        obj.setEmail(txtpreco.getText());
-        obj.setTelefone(txtfixo.getText());
-        obj.setCelular(txtcel.getText());
-        obj.setCep(txtcep.getText());
-        obj.setEndereco(txtend.getText());
-        obj.setNumero(Integer.parseInt(txtnumero.getText()));
-        obj.setComplemento(txtcomplemento.getText());
-        obj.setBairro(txtbairro.getText());
-        obj.setCidade(txtcidade.getText());
-        obj.setUf(cbfornecedor.getSelectedItem().toString());
-
-        ClientesDAO dao = new ClientesDAO();
-
-        dao.cadastrarCliente(obj);
+        //Criar um objeto de fornecedor
+        Fornecedores f = new Fornecedores();
+        f=(Fornecedores) cbfornecedor.getSelectedItem();
+        obj.setFornecedor(f);
+        
+        ProdutosDAO dao = new ProdutosDAO();
+        dao.cadastrar(obj);
+        
+        
         new Utilitarios().LimpaTela(painel_dados);
 
 
@@ -612,15 +609,15 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     private void cbfornecedorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbfornecedorAncestorAdded
         // Carregando combox fornecedores
-        
+
         FornecedoresDAO daof = new FornecedoresDAO();
-        
+
         List<Fornecedores> listaDeFornecedores = daof.listarFornecedores();
-        
+
         //evitar duplicação assim quando selecionarmos outro automaticamente ele exclui qualquer um selecionado anteriormente
         cbfornecedor.removeAll();
-        
-        for(Fornecedores f : listaDeFornecedores){
+
+        for (Fornecedores f : listaDeFornecedores) {
             cbfornecedor.addItem(f);//precisou ir no icone de propriedade e tirar o tipo de parametro esperado (String)
         }
     }//GEN-LAST:event_cbfornecedorAncestorAdded
