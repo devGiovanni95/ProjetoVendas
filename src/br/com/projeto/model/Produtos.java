@@ -19,6 +19,46 @@ public class Produtos {
     private Fornecedores fornecedor;
     
     //Getters e Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescrição() {
+        return descrição;
+    }
+
+    public void setDescrição(String descrição) {
+        this.descrição = descrição;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getQtd_estoque() {
+        return qtd_estoque;
+    }
+
+    public void setQtd_estoque(int qtd_estoque) {
+        this.qtd_estoque = qtd_estoque;
+    }
+
+    public Fornecedores getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedores fornecedor) {
+        this.fornecedor = fornecedor;
+    }
     
     
 }
