@@ -5,9 +5,9 @@
 package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
-import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Funcionarios;
 import br.com.projeto.model.WebServiceCep;
+import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -334,6 +334,7 @@ public class FuncionariosDAO {
             }else {
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null, "Dados incorretos, Favor verificar dados informados!");
+                new FrmLogin().setVisible(true);
             }
 
         } catch (SQLException erro) {
