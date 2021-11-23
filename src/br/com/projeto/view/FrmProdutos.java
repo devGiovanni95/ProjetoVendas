@@ -32,27 +32,19 @@ public class FrmProdutos extends javax.swing.JFrame {
     //Metodo Listar na tabela
     public void listar() {
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.listarClientes();
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.listarProdutos();
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Produtos c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
+                c.getDescrição(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
+
             });
 
         }
@@ -101,7 +93,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Clientes");
+        setTitle("Cadastro de Produtos");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -480,13 +472,12 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         //Criar um objeto de fornecedor
         Fornecedores f = new Fornecedores();
-        f=(Fornecedores) cbfornecedor.getSelectedItem();
+        f = (Fornecedores) cbfornecedor.getSelectedItem();
         obj.setFornecedor(f);
-        
+
         ProdutosDAO dao = new ProdutosDAO();
         dao.cadastrar(obj);
-        
-        
+
         new Utilitarios().LimpaTela(painel_dados);
 
 
@@ -504,18 +495,23 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         txtcodigo.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0).toString());
         txtdescricao.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());
-        txtrg.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 2).toString());
-        txtcpf.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 3).toString());
-        txtpreco.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 4).toString());
-        txtfixo.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 5).toString());
-        txtcel.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 6).toString());
-        txtcep.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 7).toString());
-        txtend.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 8).toString());
-        txtnumero.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 9).toString());
-        txtcomplemento.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 10).toString());
-        txtbairro.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 11).toString());
-        txtcidade.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 12).toString());
-        cbfornecedor.setSelectedItem(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 13).toString());
+        txtpreco.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 2).toString());
+        txtqtdestoque.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 3).toString());
+        
+        /*Deste jeito nao daria certo pois ele pegaria somente o nome e nao o fornecedor como objeto que ele é
+              cbfornecedor.setSelectedItem(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 13).toString());
+        */
+        Fornecedores f = new Fornecedores();
+        FornecedoresDAO dao = new FornecedoresDAO();
+        
+        //desta forma teremos o seletor de itens como um objeto que ele é pegando todas as informaçoes que ele tem
+        f = dao.consultaPorNome(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 4).toString());
+        
+        cbfornecedor.removeAllItems();
+        cbfornecedor.getModel().setSelectedItem(f);
+        
+
+  
 
 
     }//GEN-LAST:event_tabelaProdutosMouseClicked
@@ -523,27 +519,22 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // botao editar
 
-        Clientes obj = new Clientes();
+        Produtos obj = new Produtos();
 
-        obj.setNome(txtdescricao.getText());
-        obj.setRg(txtrg.getText());
-        obj.setCpf(txtcpf.getText());
-        obj.setEmail(txtpreco.getText());
-        obj.setTelefone(txtfixo.getText());
-        obj.setCelular(txtcel.getText());
-        obj.setCep(txtcep.getText());
-        obj.setEndereco(txtend.getText());
-        obj.setNumero(Integer.parseInt(txtnumero.getText()));
-        obj.setComplemento(txtcomplemento.getText());
-        obj.setBairro(txtbairro.getText());
-        obj.setCidade(txtcidade.getText());
-        obj.setUf(cbfornecedor.getSelectedItem().toString());
-
-        obj.setId(Integer.parseInt(txtcodigo.getText()));
-
-        ClientesDAO dao = new ClientesDAO();
-
-        dao.alterarCliente(obj);
+       obj.setId(Integer.parseInt(txtcodigo.getText()));
+       obj.setDescrição(txtdescricao.getText());
+       obj.setPreco(Double.parseDouble(txtpreco.getText()));
+       obj.setQtd_estoque(Integer.parseInt(txtqtdestoque.getText()));
+       
+       
+       //Criar um objeto de fornecedor
+        Fornecedores f = new Fornecedores();
+        f=(Fornecedores)cbfornecedor.getSelectedItem();
+        
+        obj.setFornecedor(f);
+        
+        ProdutosDAO dao = new ProdutosDAO();
+        dao.alterar(obj);
 
         new Utilitarios().LimpaTela(painel_dados);
 
