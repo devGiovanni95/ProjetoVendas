@@ -178,6 +178,11 @@ public class FrmProdutos extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        cbfornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbfornecedorMouseClicked(evt);
+            }
+        });
 
         txtqtdestoque.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtqtdestoque.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -397,28 +402,28 @@ public class FrmProdutos extends javax.swing.JFrame {
         // botao buscar cliente por nome     
 
         String nome = txtdescricao.getText();
-        Clientes obj = new Clientes();
-        ClientesDAO dao = new ClientesDAO();
+        Produtos obj = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
 
         obj = dao.consultaPorNome(nome);
 
-        if (obj.getNome() != null) {
+        cbfornecedor.removeAllItems();
+
+        if (obj.getDescrição() != null) {
 
             //Exibi os dados do obj nos campos de texto
             txtcodigo.setText(String.valueOf(obj.getId()));
-            txtdescricao.setText(obj.getNome());
-            txtrg.setText(obj.getRg());
-            txtcpf.setText(obj.getCpf());
-            txtpreco.setText(obj.getEmail());
-            txtfixo.setText(obj.getTelefone());
-            txtcel.setText(obj.getCelular());
-            txtcep.setText(obj.getCep());
-            txtend.setText(obj.getEndereco());
-            txtnumero.setText(String.valueOf(obj.getNumero()));
-            txtcomplemento.setText(obj.getComplemento());
-            txtbairro.setText(obj.getBairro());
-            txtcidade.setText(obj.getCidade());
-            cbfornecedor.setSelectedItem(obj.getUf());
+            txtdescricao.setText(obj.getDescrição());
+            txtpreco.setText(String.valueOf(obj.getPreco()));
+            txtqtdestoque.setText(String.valueOf(obj.getQtd_estoque()));
+
+            Fornecedores f = new Fornecedores();
+            FornecedoresDAO fdao = new FornecedoresDAO();
+
+            f = fdao.consultaPorNome(obj.getFornecedor().getNome());
+
+            //cbfornecedor.removeAllItems();
+            cbfornecedor.getModel().setSelectedItem(f);
         } else {
             JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
         }
@@ -545,7 +550,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         String nome = "%" + txtpesquisa.getText() + "%";
 
-            ProdutosDAO dao = new ProdutosDAO();
+        ProdutosDAO dao = new ProdutosDAO();
         List<Produtos> lista = dao.listarProdutoPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
@@ -584,12 +589,25 @@ public class FrmProdutos extends javax.swing.JFrame {
         List<Fornecedores> listaDeFornecedores = daof.listarFornecedores();
 
         //evitar duplicação assim quando selecionarmos outro automaticamente ele exclui qualquer um selecionado anteriormente
-        cbfornecedor.removeAll();
+        cbfornecedor.removeAllItems();
 
         for (Fornecedores f : listaDeFornecedores) {
             cbfornecedor.addItem(f);//precisou ir no icone de propriedade e tirar o tipo de parametro esperado (String)
         }
     }//GEN-LAST:event_cbfornecedorAncestorAdded
+
+    private void cbfornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbfornecedorMouseClicked
+        // limpar os dados na edicao para escolher novo fornecedor na hora de editar um produto
+        FornecedoresDAO dao = new FornecedoresDAO();
+
+        List<Fornecedores> listaDeFornecedores = dao.listarFornecedores();
+
+        cbfornecedor.removeAllItems();
+
+        for (Fornecedores f : listaDeFornecedores) {
+            cbfornecedor.addItem(f);
+        }
+    }//GEN-LAST:event_cbfornecedorMouseClicked
 
     /**
      * @param args the command line arguments

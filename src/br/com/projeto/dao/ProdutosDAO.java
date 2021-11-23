@@ -63,8 +63,8 @@ public class ProdutosDAO {
             List<Produtos> lista = new ArrayList<>();
 
             // 2 passo criar o sql, organizar e executar
-            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p " +
-                    "inner join tb_fornecedores as f on (p.for_id = f.id)";
+            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
+                    + "inner join tb_fornecedores as f on (p.for_id = f.id)";
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
@@ -77,7 +77,6 @@ public class ProdutosDAO {
                 obj.setPreco(rs.getDouble("p.preco"));
                 obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
 
-
                 f.setNome(rs.getString("f.nome"));
                 obj.setFornecedor(f);
 
@@ -87,8 +86,7 @@ public class ProdutosDAO {
 
             return lista;
 
-           // JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
-
+            // JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
         } catch (Exception erro) {
 
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
@@ -96,8 +94,8 @@ public class ProdutosDAO {
 
         }
     }
-    
-      //Metodo listarProdutoPorNome Produtos
+
+    //Metodo listarProdutoPorNome Produtos
     public List<Produtos> listarProdutoPorNome(String nome) {
         try {
 
@@ -105,12 +103,12 @@ public class ProdutosDAO {
             List<Produtos> lista = new ArrayList<>();
 
             // 2 passo criar o sql, organizar e executar
-            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p " +
-                    "inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao like ?";
-            
+            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
+                    + "inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao like ?";
+
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1,nome);
-            
+            stmt.setString(1, nome);
+
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -122,7 +120,6 @@ public class ProdutosDAO {
                 obj.setPreco(rs.getDouble("p.preco"));
                 obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
 
-
                 f.setNome(rs.getString("f.nome"));
                 obj.setFornecedor(f);
 
@@ -132,8 +129,7 @@ public class ProdutosDAO {
 
             return lista;
 
-           // JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
-
+            // JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
         } catch (Exception erro) {
 
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
@@ -141,8 +137,49 @@ public class ProdutosDAO {
 
         }
     }
-    
-      //Metodo Alterar Produtos
+
+    //Metodo consultaPorNome Produtos
+    public Produtos consultaPorNome(String nome) {
+        try {
+
+            //1 passo criar a lista
+            List<Produtos> lista = new ArrayList<>();
+
+            // 2 passo criar o sql, organizar e executar
+            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
+                    + "inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao = ?";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+            Fornecedores f = new Fornecedores();
+
+            if (rs.next()) {
+
+                obj.setId(rs.getInt("p.id"));
+                obj.setDescrição(rs.getString("p.descricao"));
+                obj.setPreco(rs.getDouble("p.preco"));
+                obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+
+                f.setNome(rs.getString("f.nome"));
+                
+                obj.setFornecedor(f);
+            }
+
+            return obj;
+
+            // JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
+        } catch (Exception erro) {
+
+            JOptionPane.showMessageDialog(null, "Produto não encontrado! ");
+            return null;
+
+        }
+    }
+
+    //Metodo Alterar Produtos
     public void alterar(Produtos obj) {
         try {
 
@@ -154,12 +191,11 @@ public class ProdutosDAO {
             stmt.setString(1, obj.getDescrição());
             stmt.setDouble(2, obj.getPreco());
             stmt.setInt(3, obj.getQtd_estoque());
-            
+
             stmt.setInt(4, obj.getFornecedor().getId());//tranforma o objeto em um numeto no caso do id;
 
             stmt.setInt(5, obj.getId());
-            
-            
+
             stmt.execute();
             stmt.close();
 
@@ -171,7 +207,6 @@ public class ProdutosDAO {
 
         }
     }
-
 
     //Metodo Excluir Produtos
     public void excluir(Produtos obj) {
@@ -185,7 +220,6 @@ public class ProdutosDAO {
 
             stmt.setInt(1, obj.getId());
 
-
             stmt.execute();
             stmt.close();
 
@@ -198,5 +232,4 @@ public class ProdutosDAO {
         }
     }
 
-    
 }
