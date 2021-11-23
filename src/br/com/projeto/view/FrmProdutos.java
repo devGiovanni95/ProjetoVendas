@@ -544,13 +544,13 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // botao excluir
 
-        Clientes obj = new Clientes();
+        Produtos obj = new Produtos();
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        ClientesDAO dao = new ClientesDAO();
-
-        dao.excluirCliente(obj);
+        ProdutosDAO dao = new ProdutosDAO();
+        dao.excluir(obj);
+        
         new Utilitarios().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_jButton4ActionPerformed
