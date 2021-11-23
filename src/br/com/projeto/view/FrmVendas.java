@@ -15,7 +15,9 @@ import br.com.projeto.model.Utilitarios;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 
+import java.util.Date;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -291,6 +293,7 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
 
+        txtdataatual.setEditable(false);
         txtdataatual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtdataatual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -534,8 +537,15 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // Carrega a lista
-        listar();
+        // Carrega a data atual do sistema
+        
+        Date agora = new Date();
+        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
+
+        String dataFormatada = dataBr.format(agora);
+
+        txtdataatual.setText(dataFormatada);
+       
 
     }//GEN-LAST:event_formWindowActivated
 
