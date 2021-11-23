@@ -429,30 +429,21 @@ public class FrmProdutos extends javax.swing.JFrame {
         // Botao pesquisar
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.buscaClientePorNome(nome);
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.listarProdutoPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Produtos c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
-            });
+                c.getDescrição(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
 
+            });
         }
 
 
@@ -497,21 +488,18 @@ public class FrmProdutos extends javax.swing.JFrame {
         txtdescricao.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());
         txtpreco.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 2).toString());
         txtqtdestoque.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 3).toString());
-        
+
         /*Deste jeito nao daria certo pois ele pegaria somente o nome e nao o fornecedor como objeto que ele é
               cbfornecedor.setSelectedItem(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 13).toString());
-        */
+         */
         Fornecedores f = new Fornecedores();
         FornecedoresDAO dao = new FornecedoresDAO();
-        
+
         //desta forma teremos o seletor de itens como um objeto que ele é pegando todas as informaçoes que ele tem
         f = dao.consultaPorNome(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 4).toString());
-        
+
         cbfornecedor.removeAllItems();
         cbfornecedor.getModel().setSelectedItem(f);
-        
-
-  
 
 
     }//GEN-LAST:event_tabelaProdutosMouseClicked
@@ -521,18 +509,17 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         Produtos obj = new Produtos();
 
-       obj.setId(Integer.parseInt(txtcodigo.getText()));
-       obj.setDescrição(txtdescricao.getText());
-       obj.setPreco(Double.parseDouble(txtpreco.getText()));
-       obj.setQtd_estoque(Integer.parseInt(txtqtdestoque.getText()));
-       
-       
-       //Criar um objeto de fornecedor
+        obj.setId(Integer.parseInt(txtcodigo.getText()));
+        obj.setDescrição(txtdescricao.getText());
+        obj.setPreco(Double.parseDouble(txtpreco.getText()));
+        obj.setQtd_estoque(Integer.parseInt(txtqtdestoque.getText()));
+
+        //Criar um objeto de fornecedor
         Fornecedores f = new Fornecedores();
-        f=(Fornecedores)cbfornecedor.getSelectedItem();
-        
+        f = (Fornecedores) cbfornecedor.getSelectedItem();
+
         obj.setFornecedor(f);
-        
+
         ProdutosDAO dao = new ProdutosDAO();
         dao.alterar(obj);
 
@@ -550,7 +537,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         ProdutosDAO dao = new ProdutosDAO();
         dao.excluir(obj);
-        
+
         new Utilitarios().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -558,30 +545,21 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.buscaClientePorNome(nome);
+            ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.listarProdutoPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Produtos c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
-            });
+                c.getDescrição(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
 
+            });
         }
     }//GEN-LAST:event_txtpesquisaKeyPressed
 
