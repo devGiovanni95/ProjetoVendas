@@ -74,34 +74,34 @@ public class FrmVendas extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtnome2 = new javax.swing.JTextField();
+        txtcodigo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtemail1 = new javax.swing.JTextField();
-        txtnome3 = new javax.swing.JTextField();
+        txtdescricaoproduto = new javax.swing.JTextField();
+        txtpreco = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        btnbusca = new javax.swing.JButton();
-        txtnome4 = new javax.swing.JTextField();
+        btnadd = new javax.swing.JButton();
+        btnbuscaproduto = new javax.swing.JButton();
+        txtquantidade = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        txtnome5 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtemail2 = new javax.swing.JTextField();
-        txtnome6 = new javax.swing.JTextField();
+        txtnome = new javax.swing.JTextField();
+        txtdataatual = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        btnbusca1 = new javax.swing.JButton();
+        btnbuscacliente = new javax.swing.JButton();
+        txtcpf = new javax.swing.JFormattedTextField();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaItens = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        txtemail3 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        txttotal = new javax.swing.JTextField();
+        btncancelar = new javax.swing.JButton();
+        btnpagamento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Produtos");
+        setTitle("Tela de Vendas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -169,53 +169,53 @@ public class FrmVendas extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Código:");
 
-        txtnome2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtnome2.addActionListener(new java.awt.event.ActionListener() {
+        txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome2ActionPerformed(evt);
+                txtcodigoActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Produto:");
 
-        txtemail1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtemail1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtdescricaoproduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtdescricaoproduto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtemail1KeyPressed(evt);
+                txtdescricaoprodutoKeyPressed(evt);
             }
         });
 
-        txtnome3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtnome3.addActionListener(new java.awt.event.ActionListener() {
+        txtpreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtpreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome3ActionPerformed(evt);
+                txtprecoActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Preço:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Adicionar Item");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnadd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnadd.setText("Adicionar Item");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnaddActionPerformed(evt);
             }
         });
 
-        btnbusca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnbusca.setText("Pesquisar");
-        btnbusca.addActionListener(new java.awt.event.ActionListener() {
+        btnbuscaproduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnbuscaproduto.setText("Pesquisar");
+        btnbuscaproduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscaActionPerformed(evt);
+                btnbuscaprodutoActionPerformed(evt);
             }
         });
 
-        txtnome4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtnome4.addActionListener(new java.awt.event.ActionListener() {
+        txtquantidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtquantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome4ActionPerformed(evt);
+                txtquantidadeActionPerformed(evt);
             }
         });
 
@@ -232,24 +232,24 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtnome2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(26, 26, 26)
-                            .addComponent(btnbusca))
+                            .addComponent(btnbuscaproduto))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtemail1))
+                            .addComponent(txtdescricaoproduto))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel8)
                             .addGap(18, 18, 18)
-                            .addComponent(txtnome3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel9)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtnome4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtquantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -258,20 +258,20 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtnome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnbusca))
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnbuscaproduto))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtemail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdescricaoproduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
-                    .addComponent(txtnome4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtnome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtquantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -281,40 +281,40 @@ public class FrmVendas extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("CPF:");
 
-        txtnome5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtnome5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome5ActionPerformed(evt);
-            }
-        });
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setText("Nome:");
 
-        txtemail2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtemail2.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtnome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtnome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtemail2KeyPressed(evt);
+                txtnomeKeyPressed(evt);
             }
         });
 
-        txtnome6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtnome6.addActionListener(new java.awt.event.ActionListener() {
+        txtdataatual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtdataatual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome6ActionPerformed(evt);
+                txtdataatualActionPerformed(evt);
             }
         });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("Data:");
 
-        btnbusca1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnbusca1.setText("Pesquisar");
-        btnbusca1.addActionListener(new java.awt.event.ActionListener() {
+        btnbuscacliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnbuscacliente.setText("Pesquisar");
+        btnbuscacliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbusca1ActionPerformed(evt);
+                btnbuscaclienteActionPerformed(evt);
             }
         });
+
+        try {
+            txtcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtcpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -323,20 +323,22 @@ public class FrmVendas extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel10))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtnome5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtnome6, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtemail2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnbusca1)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addComponent(btnbuscacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,16 +347,16 @@ public class FrmVendas extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtemail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(btnbusca1)))
+                            .addComponent(btnbuscacliente)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(txtnome5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnome6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12))))
+                            .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
@@ -394,26 +396,26 @@ public class FrmVendas extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setText("TOTAL DA VENDA:");
 
-        txtemail3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        txtemail3.addKeyListener(new java.awt.event.KeyAdapter() {
+        txttotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        txttotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtemail3KeyPressed(evt);
+                txttotalKeyPressed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("CANCELAR VENDA");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btncancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btncancelar.setText("CANCELAR VENDA");
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btncancelarActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton5.setText("PAGAMENTO");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnpagamento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnpagamento.setText("PAGAMENTO");
+        btnpagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnpagamentoActionPerformed(evt);
             }
         });
 
@@ -425,17 +427,17 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(18, 18, 18)
-                .addComponent(txtemail3, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(105, 105, 105)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jButton2)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
-        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton2, jButton5});
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btncancelar, btnpagamento});
 
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,15 +449,15 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap(45, Short.MAX_VALUE)
-                        .addComponent(txtemail3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton2, jButton5});
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btncancelar, btnpagamento});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -473,7 +475,7 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -497,13 +499,13 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(183, 183, 183)
+                .addGap(207, 207, 207)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -580,23 +582,23 @@ public class FrmVendas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnnovoActionPerformed
 
-    private void txtnome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome2ActionPerformed
+    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome2ActionPerformed
+    }//GEN-LAST:event_txtcodigoActionPerformed
 
-    private void txtemail1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtemail1KeyPressed
+    private void txtdescricaoprodutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdescricaoprodutoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemail1KeyPressed
+    }//GEN-LAST:event_txtdescricaoprodutoKeyPressed
 
-    private void txtnome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome3ActionPerformed
+    private void txtprecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome3ActionPerformed
+    }//GEN-LAST:event_txtprecoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnaddActionPerformed
 
-    private void btnbuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaActionPerformed
+    private void btnbuscaprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaprodutoActionPerformed
         // botao buscar cliente por nome
 
         String nome = txtnome.getText();
@@ -625,39 +627,35 @@ public class FrmVendas extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
         }
-    }//GEN-LAST:event_btnbuscaActionPerformed
+    }//GEN-LAST:event_btnbuscaprodutoActionPerformed
 
-    private void txtnome4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome4ActionPerformed
+    private void txtquantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquantidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome4ActionPerformed
+    }//GEN-LAST:event_txtquantidadeActionPerformed
 
-    private void txtnome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome5ActionPerformed
+    private void txtnomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomeKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome5ActionPerformed
+    }//GEN-LAST:event_txtnomeKeyPressed
 
-    private void txtemail2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtemail2KeyPressed
+    private void txtdataatualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdataatualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemail2KeyPressed
+    }//GEN-LAST:event_txtdataatualActionPerformed
 
-    private void txtnome6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome6ActionPerformed
+    private void btnbuscaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaclienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome6ActionPerformed
+    }//GEN-LAST:event_btnbuscaclienteActionPerformed
 
-    private void btnbusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbusca1ActionPerformed
+    private void txttotalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttotalKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnbusca1ActionPerformed
+    }//GEN-LAST:event_txttotalKeyPressed
 
-    private void txtemail3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtemail3KeyPressed
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemail3KeyPressed
+    }//GEN-LAST:event_btncancelarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnpagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnpagamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -698,15 +696,15 @@ public class FrmVendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnbusca;
-    private javax.swing.JButton btnbusca1;
+    private javax.swing.JButton btnadd;
+    private javax.swing.JButton btnbuscacliente;
+    private javax.swing.JButton btnbuscaproduto;
+    private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnnovo;
+    private javax.swing.JButton btnpagamento;
     private javax.swing.JButton btnsalvar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -723,13 +721,13 @@ public class FrmVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaItens;
-    private javax.swing.JTextField txtemail1;
-    private javax.swing.JTextField txtemail2;
-    private javax.swing.JTextField txtemail3;
-    private javax.swing.JTextField txtnome2;
-    private javax.swing.JTextField txtnome3;
-    private javax.swing.JTextField txtnome4;
-    private javax.swing.JTextField txtnome5;
-    private javax.swing.JTextField txtnome6;
+    private javax.swing.JTextField txtcodigo;
+    private javax.swing.JFormattedTextField txtcpf;
+    private javax.swing.JTextField txtdataatual;
+    private javax.swing.JTextField txtdescricaoproduto;
+    private javax.swing.JTextField txtnome;
+    private javax.swing.JTextField txtpreco;
+    private javax.swing.JTextField txtquantidade;
+    private javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
 }
