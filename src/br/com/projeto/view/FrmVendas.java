@@ -39,6 +39,7 @@ public class FrmVendas extends javax.swing.JFrame {
     public FrmVendas() {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
+        txtquantidade.setText("1");
 
     }
 
