@@ -7,6 +7,7 @@ package br.com.projeto.dao;
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Fornecedores;
 import br.com.projeto.model.Produtos;
+
 import java.sql.Connection;
 import javax.swing.*;
 import java.sql.Connection;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author geu_p
  */
 public class ProdutosDAO {
@@ -164,7 +164,7 @@ public class ProdutosDAO {
                 obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
 
                 f.setNome(rs.getString("f.nome"));
-                
+
                 obj.setFornecedor(f);
             }
 
@@ -178,6 +178,80 @@ public class ProdutosDAO {
 
         }
     }
+
+
+    //variação de pesquisa
+    //Metodo buscaProduto por Codigo
+    public Produtos buscaPorCodigoCompleta(int id) {
+        try {
+            // 1 passo criar o sql, organizar e executar
+
+            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
+                    + "inner join tb_fornecedores as f on (p.for_id = f.id) where p.id = ?";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+            Fornecedores f = new Fornecedores();
+
+            if (rs.next()) {
+
+                obj.setId(rs.getInt("p.id"));
+                obj.setDescrição(rs.getString("p.descricao"));
+                obj.setPreco(rs.getDouble("p.preco"));
+                obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+
+                f.setNome(rs.getString("f.nome"));
+
+                obj.setFornecedor(f);
+            }
+
+            return obj;
+
+            // JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
+        } catch (Exception erro) {
+
+            JOptionPane.showMessageDialog(null, "Produto não encontrado! ");
+            return null;
+
+        }
+    }
+
+    //Variacao da pesquisa acima simplificada
+    //Metodo buscaProduto por Codigo
+    public Produtos buscaPorCodigo(int id) {
+        try {
+            // 1 passo criar o sql, organizar e executar
+
+            String sql = "select * from tb_produtos where id = ?";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+
+            if (rs.next()) {
+
+                obj.setId(rs.getInt("id"));
+                obj.setDescrição(rs.getString("descricao"));
+                obj.setPreco(rs.getDouble("preco"));
+                obj.setQtd_estoque(rs.getInt("qtd_estoque"));
+
+            }
+
+            return obj;
+
+        } catch (Exception erro) {
+
+            JOptionPane.showMessageDialog(null, "Produto não encontrado! ");
+            return null;
+
+        }
+    }
+
 
     //Metodo Alterar Produtos
     public void alterar(Produtos obj) {
