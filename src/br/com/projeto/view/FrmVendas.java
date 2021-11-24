@@ -31,27 +31,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmVendas extends javax.swing.JFrame {
 
-    //Metodo Listar na tabela
-    public void listar() {
+    double total,preco,subtotal;
+    int qtd;
 
-        ProdutosDAO dao = new ProdutosDAO();
-        List<Produtos> lista = dao.listarProdutos();
-        DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
-        dados.setNumRows(0);
-
-        for (Produtos c : lista) {
-            dados.addRow(new Object[]{
-                c.getId(),
-                c.getDescrição(),
-                c.getPreco(),
-                c.getQtd_estoque(),
-                c.getFornecedor().getNome()
-
-            });
-
-        }
-
-    }
+    DefaultTableModel carrinho;
 
     public FrmVendas() {
         initComponents();
@@ -315,7 +298,7 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnbuscacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -499,7 +482,28 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtprecoActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        // TODO add your handling code here:
+        // Botão adicionar item
+
+        qtd = Integer.parseInt(txtquantidade.getText());
+        preco = Double.parseDouble(txtpreco.getText());
+
+        subtotal = qtd * preco;
+
+        total += subtotal;
+        txttotal.setText(String.valueOf(total));
+
+        //Adicionar os produtos no carrinho de compras
+
+        carrinho = (DefaultTableModel) tabelaItens.getModel();
+
+        carrinho.addRow(new Object[]{
+                txtcodigo.getText(),
+                txtdescricaoproduto.getText(),
+                txtquantidade.getText(),
+                txtpreco.getText(),
+                subtotal
+        });
+
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void btnbuscaprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaprodutoActionPerformed
@@ -546,11 +550,11 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txttotalKeyPressed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        // TODO add your handling code here:
+        // Botão cancelar pedido
     }//GEN-LAST:event_btncancelarActionPerformed
 
     private void btnpagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagamentoActionPerformed
-        // TODO add your handling code here:
+        // Botão pagamento
     }//GEN-LAST:event_btnpagamentoActionPerformed
 
     private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed

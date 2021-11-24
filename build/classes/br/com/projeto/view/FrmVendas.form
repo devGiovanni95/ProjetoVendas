@@ -320,7 +320,7 @@
                           <Component id="btnbuscacliente" min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="60" max="32767" attributes="0"/>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
