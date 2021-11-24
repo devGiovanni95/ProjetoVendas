@@ -555,6 +555,12 @@ public class FrmVendas extends javax.swing.JFrame {
 
     private void btnpagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagamentoActionPerformed
         // Botão pagamento
+        FrmPagamentos telap = new FrmPagamentos();
+        telap.txttotal.setText(String.valueOf(total));
+        telap.setVisible(true);//mostrar a nova tela de pagamento
+        this.dispose();//esconder a tela
+
+
     }//GEN-LAST:event_btnpagamentoActionPerformed
 
     private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed

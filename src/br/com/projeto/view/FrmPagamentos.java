@@ -30,16 +30,16 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtcodigo = new javax.swing.JTextField();
-        txtcodigo1 = new javax.swing.JTextField();
+        txtdinheiro = new javax.swing.JTextField();
+        txtcartao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtcodigo2 = new javax.swing.JTextField();
+        txtcheque = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtcodigo4 = new javax.swing.JTextField();
+        txttroco = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtcodigo5 = new javax.swing.JTextField();
+        txttotal = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnfinalizarvenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,17 +71,17 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("DINHEIRO:");
 
-        txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
+        txtdinheiro.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtdinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodigoActionPerformed(evt);
+                txtdinheiroActionPerformed(evt);
             }
         });
 
-        txtcodigo1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtcodigo1.addActionListener(new java.awt.event.ActionListener() {
+        txtcartao.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtcartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodigo1ActionPerformed(evt);
+                txtcartaoActionPerformed(evt);
             }
         });
 
@@ -89,10 +89,10 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("CARTÃO:");
 
-        txtcodigo2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtcodigo2.addActionListener(new java.awt.event.ActionListener() {
+        txtcheque.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtcheque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodigo2ActionPerformed(evt);
+                txtchequeActionPerformed(evt);
             }
         });
 
@@ -100,11 +100,11 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("CHEQUE:");
 
-        txtcodigo4.setEditable(false);
-        txtcodigo4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtcodigo4.addActionListener(new java.awt.event.ActionListener() {
+        txttroco.setEditable(false);
+        txttroco.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txttroco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodigo4ActionPerformed(evt);
+                txttrocoActionPerformed(evt);
             }
         });
 
@@ -112,11 +112,11 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setText("TROCO:");
 
-        txtcodigo5.setEditable(false);
-        txtcodigo5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtcodigo5.addActionListener(new java.awt.event.ActionListener() {
+        txttotal.setEditable(false);
+        txttotal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txttotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodigo5ActionPerformed(evt);
+                txttotalActionPerformed(evt);
             }
         });
 
@@ -124,11 +124,11 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel11.setText("TOTAL:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jButton1.setText("Finalizar Venda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnfinalizarvenda.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        btnfinalizarvenda.setText("Finalizar Venda");
+        btnfinalizarvenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnfinalizarvendaActionPerformed(evt);
             }
         });
 
@@ -138,7 +138,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnfinalizarvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
@@ -154,12 +154,12 @@ public class FrmPagamentos extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addGap(10, 10, 10)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtcodigo4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txttroco, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtcodigo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtcodigo5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcheque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txttotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcartao, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -178,17 +178,17 @@ public class FrmPagamentos extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(jLabel11))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtdinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(txtcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtcartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(txtcodigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtcheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(txtcodigo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txttroco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(txtcodigo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnfinalizarvenda, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
 
@@ -211,29 +211,44 @@ public class FrmPagamentos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
+    private void txtdinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdinheiroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcodigoActionPerformed
+    }//GEN-LAST:event_txtdinheiroActionPerformed
 
-    private void txtcodigo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigo1ActionPerformed
+    private void txtcartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcartaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcodigo1ActionPerformed
+    }//GEN-LAST:event_txtcartaoActionPerformed
 
-    private void txtcodigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigo2ActionPerformed
+    private void txtchequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtchequeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcodigo2ActionPerformed
+    }//GEN-LAST:event_txtchequeActionPerformed
 
-    private void txtcodigo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigo4ActionPerformed
+    private void txttrocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttrocoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcodigo4ActionPerformed
+    }//GEN-LAST:event_txttrocoActionPerformed
 
-    private void txtcodigo5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigo5ActionPerformed
+    private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcodigo5ActionPerformed
+    }//GEN-LAST:event_txttotalActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnfinalizarvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinalizarvendaActionPerformed
+        // Botão finalizar venda
+        double pcartao, pcheque,pdinheiro,totalpago,totalvenda,troco;
+        
+        pcartao = Double.parseDouble(txtcartao.getText());
+        pcheque = Double.parseDouble(txtcheque.getText());
+        pdinheiro = Double.parseDouble(txtdinheiro.getText());
+        
+        totalvenda = Double.parseDouble(txttotal.getText());
+        
+        //Calcular total e o troco
+        totalpago = pcartao + pcheque + pdinheiro;
+        
+        troco = totalpago - totalvenda;
+        txttroco.setText(String.valueOf(troco));
+        
+        
+    }//GEN-LAST:event_btnfinalizarvendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,7 +286,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnfinalizarvenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -280,13 +295,10 @@ public class FrmPagamentos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtcodigo;
-    private javax.swing.JTextField txtcodigo1;
-    private javax.swing.JTextField txtcodigo2;
-    private javax.swing.JTextField txtcodigo4;
-    private javax.swing.JTextField txtcodigo5;
-    private javax.swing.JTextField txtnome;
-    private javax.swing.JTextField txtnome1;
-    private javax.swing.JTextField txtnome2;
+    private javax.swing.JTextField txtcartao;
+    private javax.swing.JTextField txtcheque;
+    private javax.swing.JTextField txtdinheiro;
+    public javax.swing.JTextField txttotal;
+    private javax.swing.JTextField txttroco;
     // End of variables declaration//GEN-END:variables
 }
