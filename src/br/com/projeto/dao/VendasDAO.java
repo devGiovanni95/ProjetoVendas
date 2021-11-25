@@ -1,6 +1,7 @@
 package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
+import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Fornecedores;
 import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Vendas;
@@ -71,6 +72,50 @@ public class VendasDAO {
 
         }catch (SQLException sqlException){
             throw  new RuntimeException(sqlException);
+        }
+    }
+    
+    //Método que filtra Vendas por data
+    public List<Vendas> listarVendasPorPeriodo(String data_inicio,String data_fim) {
+        try {
+
+            //1 passo criar a lista
+            List<Vendas> lista = new ArrayList<>();
+
+            // 2 passo criar o sql, organizar e executar
+            String sql = "select v.id, v.data_venda, c.nome, v.total_venda, v.pagamento from tb_vendas as v "
+                    + "inner join tb_clientes as c on (v.cliente_id = c.id) where v.data_venda BETWEEN ? AND ? ";
+            
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, data_inicio);
+            stmt.setString(2, data_fim);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vendas obj = new Vendas();
+                Clientes c = new Clientes();
+
+                obj.setId(rs.getInt("v.id"));
+                obj.setData_venda(rs.getString("v.data_venda"));
+                c.setNome(rs.getString("c.nome"));
+                obj.setTotal_venda(rs.getDouble("v.total_venda"));
+                obj.setObs(rs.getString("v.observacoes"));
+
+                obj.setCliente(c);
+
+                lista.add(obj);
+
+            }
+
+            return lista;
+
+        } catch (Exception erro) {
+
+            JOptionPane.showMessageDialog(null, "Erro: " + erro);
+            return null;
+
         }
     }
 
