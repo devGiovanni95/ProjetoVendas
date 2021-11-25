@@ -306,4 +306,47 @@ public class ProdutosDAO {
         }
     }
 
+    //Metodo que atualiza e dá as devidas baixas no estoque conforme as vendas
+    public void baixaEstoque(int id, int qtd_nova) {
+        try {
+
+            //1 passo criar comando sql para atualizar a quantidade de produtos no estoque
+            String sql = "update tb_produtos set qtd_estoque = ? where id = ? ";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+
+        }
+    }
+
+    //Metodo retorna estoque atual de um produto
+    public int retornaEstoqueAtual(int id) {
+        try {
+            int qtd_estoque = 0;
+
+            String sql = "Select qtd_estoque from tb_produtos where id = ? ";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1,id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()){
+
+                qtd_estoque = (rs.getInt("qtd_estoque"));
+            }
+            return qtd_estoque;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+    }
 }
