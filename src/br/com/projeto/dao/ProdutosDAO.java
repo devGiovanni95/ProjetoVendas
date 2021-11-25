@@ -349,4 +349,6 @@ public class ProdutosDAO {
         }
 
     }
+
+    //Conferir trhillers baixa de estoque pelo proprio banco de dados
 }

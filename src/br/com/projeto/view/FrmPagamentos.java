@@ -5,6 +5,7 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ItemVendaDAO;
+import br.com.projeto.dao.ProdutosDAO;
 import br.com.projeto.dao.VendasDAO;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.ItemVenda;
@@ -324,8 +325,13 @@ public class FrmPagamentos extends javax.swing.JFrame {
         /**Nao necessita colocar o -1 depois de RowCount*/
         for (int i = 0; i < carrinho.getRowCount() /*- 1*/; i++) {
 
-            //intanciando produtos para pegar dados da tabela
+            //instanciando produtos para pegar dados da tabela
             Produtos objp = new Produtos();
+
+
+            //instanciando para dar baixa no sistema a quantidade de estoque
+            int qtd_estoque, qtd_comprada, qtd_atualizada;
+            ProdutosDAO dao_produto = new ProdutosDAO();
 
             ItemVenda item = new ItemVenda();
             item.setVenda(objv);
@@ -341,6 +347,14 @@ public class FrmPagamentos extends javax.swing.JFrame {
 
             ItemVendaDAO daoItem = new ItemVendaDAO();
             daoItem.cadastraItem(item);
+
+            //Baixa no estoque
+            qtd_estoque = dao_produto.retornaEstoqueAtual(objp.getId());//pega o id do produto
+            qtd_comprada = Integer.parseInt(carrinho.getValueAt(i,2).toString());//pegando a quantidade comprada da tabela de venda
+            qtd_atualizada = qtd_estoque - qtd_comprada;//faz o calculo de quanto resta no estoque
+
+
+            dao_produto.baixaEstoque(objp.getId(),qtd_atualizada);//da baixa no estoque atravez do metodo criado na classe ProdutoDAO
 
 
         }
