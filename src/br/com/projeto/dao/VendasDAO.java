@@ -54,7 +54,7 @@ public class VendasDAO {
         try {
             int idvenda = 0;
 
-            String sql = "select max(id) id from vendas ";
+            String sql = "select max(id) id from tb_vendas ";
 
             PreparedStatement ps = con.prepareStatement(sql);
 

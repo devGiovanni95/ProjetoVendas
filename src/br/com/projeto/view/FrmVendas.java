@@ -563,6 +563,10 @@ public class FrmVendas extends javax.swing.JFrame {
         //telap.cliente_id = obj.getId();  --passando somente o id
         telap.cliente = obj;
 
+        //
+        telap.carrinho = carrinho;
+
+
         telap.setVisible(true);//mostrar a nova tela de pagamento
         this.dispose();//esconder a tela
 

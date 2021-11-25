@@ -6,8 +6,10 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.VendasDAO;
 import br.com.projeto.model.Clientes;
+import br.com.projeto.model.ItemVenda;
 import br.com.projeto.model.Vendas;
 
+import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -18,6 +20,7 @@ import java.util.Date;
 public class FrmPagamentos extends javax.swing.JFrame {
 
     Clientes cliente;
+    DefaultTableModel carrinho;
 
     public FrmPagamentos() {
         initComponents();
@@ -307,8 +310,23 @@ public class FrmPagamentos extends javax.swing.JFrame {
         //Cadastrar venda
         VendasDAO dao_venda = new VendasDAO();
         dao_venda.cadastrarVenda(objv);
-        
-        
+
+        //Retorna o id da ultima venda
+        objv.setId(dao_venda.retornaUltimaVenda());
+
+        //coferencia no console para ver se esta passando a numeração certa
+//        System.out.println("Id da ultima venda: " + objv.getId());
+
+  //Cadastrando os produtos na tabela itemvenda
+                                //paga a quantida de linha e diminui menos 1 poid dus contagem nao é padrão
+        for (int i=0; i < carrinho.getRowCount() - 1; i++){
+
+            ItemVenda item = new ItemVenda();
+            item.setVenda(objv);
+        }
+
+
+
     }//GEN-LAST:event_btnfinalizarvendaActionPerformed
 
     /**
