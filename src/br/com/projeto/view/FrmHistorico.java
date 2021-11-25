@@ -7,6 +7,7 @@ package br.com.projeto.view;
 import br.com.projeto.dao.VendasDAO;
 import br.com.projeto.model.Vendas;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
 import java.time.LocalDate;
@@ -197,7 +198,10 @@ public class FrmHistorico extends javax.swing.JFrame {
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
         // botao buscar vendas por periodo
-        
+
+        try {
+
+
         //Receber as datas
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");//Formato da data recebida
 
@@ -210,7 +214,7 @@ public class FrmHistorico extends javax.swing.JFrame {
         DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
         dados.setNumRows(0);
 
-        for (Vendas v : lista ){
+        for (Vendas v : lista ) {
             dados.addRow(new Object[]{
                     v.getId(),
                     v.getData_venda(),
@@ -218,6 +222,9 @@ public class FrmHistorico extends javax.swing.JFrame {
                     v.getTotal_venda(),
                     v.getObs()
             });
+        }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Digite duas datas válidas, ou com intervalo ");
         }
 
 

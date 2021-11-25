@@ -84,9 +84,13 @@ public class VendasDAO {
             List<Vendas> lista = new ArrayList<>();
 
             // 2 passo criar o sql, organizar e executar
-            String sql = "select v.id, v.data_venda, c.nome, v.total_venda, v.observacoes from tb_vendas as v "
+          /*  String sql = "select v.id, v.data_venda, c.nome, v.total_venda, v.observacoes from tb_vendas as v "
+                    + "inner join tb_clientes as c on (v.cliente_id = c.id) where v.data_venda BETWEEN ? AND ? ";*/
+
+            //com a data formatada
+              String sql = "select v.id, date_format(v.data_venda, '%d%m%Y') as data_formatada, c.nome, v.total_venda, v.observacoes from tb_vendas as v "
                     + "inner join tb_clientes as c on (v.cliente_id = c.id) where v.data_venda BETWEEN ? AND ? ";
-            
+
             
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, data_inicio.toString());//converter para string
@@ -99,7 +103,11 @@ public class VendasDAO {
                 Clientes c = new Clientes();
 
                 obj.setId(rs.getInt("v.id"));
-                obj.setData_venda(rs.getString("v.data_venda"));
+
+                //precisamos mudar o nome do campo pois formatamos a data para aparecer mais simples
+               //obj.setData_venda(rs.getString("v.data_venda"));
+                obj.setData_venda(rs.getString("data_formatada"));
+
                 c.setNome(rs.getString("c.nome"));
                 obj.setTotal_venda(rs.getDouble("v.total_venda"));
                 obj.setObs(rs.getString("v.observacoes"));
