@@ -41,7 +41,6 @@ public class VendasDAO {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Venda Registrada com sucesso! ");
         }catch (Exception erro){
             JOptionPane.showMessageDialog(null,"Erro :" + erro);
         }

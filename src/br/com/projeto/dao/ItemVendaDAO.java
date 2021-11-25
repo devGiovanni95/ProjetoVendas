@@ -40,10 +40,10 @@ public class ItemVendaDAO {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Item Registrado com Sucesso");
+            /*Para nao aparecer a mensagem para cada item que adicionarmos mostrar uma mensagem por vez*/
+            //JOptionPane.showMessageDialog(null, "Item Registrado com Sucesso");
             
-            
-            
+
             
         } catch (Exception e) {
 
