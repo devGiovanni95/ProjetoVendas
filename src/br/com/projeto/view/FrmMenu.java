@@ -9,7 +9,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author geu_p
@@ -19,9 +18,8 @@ public class FrmMenu extends javax.swing.JFrame {
     /**
      * Creates new form FrmMenu
      */
-    
     public String usuarioLogado;
-    
+
     public FrmMenu() {
         initComponents();
     }
@@ -76,7 +74,7 @@ public class FrmMenu extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema de Controle de Vendas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -189,12 +187,22 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu5.setText("Configurações");
 
         menu_trocausuario.setText("Trocar de Usuário");
+        menu_trocausuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_trocausuarioActionPerformed(evt);
+            }
+        });
         jMenu5.add(menu_trocausuario);
 
         jMenuBar1.add(jMenu5);
 
         menu_sairdosistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
         menu_sairdosistema.setText("Sair");
+        menu_sairdosistema.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_sairdosistemaMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menu_sairdosistema);
 
         setJMenuBar(jMenuBar1);
@@ -223,15 +231,36 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Deixar em tela cheia
-        
+
         this.setExtendedState(this.MAXIMIZED_BOTH);
-        
+
         //setar o nome do usuario logado no campo abaixo da tela do menu
         lblusuariologado.setText(usuarioLogado);
-        
+
         this.setVisible(true);
 
     }//GEN-LAST:event_formWindowActivated
+
+    private void menu_trocausuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_trocausuarioActionPerformed
+        // Trocar de usuario//Efetuar logout
+        FrmLogin telalogin = new FrmLogin();
+
+        this.dispose();
+        telalogin.setVisible(true);
+
+    }//GEN-LAST:event_menu_trocausuarioActionPerformed
+
+    private void menu_sairdosistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_sairdosistemaMouseClicked
+        // Botao sair do sistema
+        
+        int op;
+        
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja sair ?");
+        
+        if(op == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_menu_sairdosistemaMouseClicked
 
     /**
      * @param args the command line arguments
