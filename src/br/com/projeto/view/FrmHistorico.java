@@ -4,7 +4,9 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ItemVendaDAO;
 import br.com.projeto.dao.VendasDAO;
+import br.com.projeto.model.ItemVenda;
 import br.com.projeto.model.Vendas;
 
 import javax.swing.*;
@@ -173,8 +175,8 @@ public class FrmHistorico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -183,9 +185,9 @@ public class FrmHistorico extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,6 +246,28 @@ public class FrmHistorico extends javax.swing.JFrame {
         tela.txttotaldavenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 3).toString());
         tela.txtdatavenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 1).toString());
         tela.txtobsvenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 4).toString());
+        
+        
+        //pegar o id numa variavel local
+        int venda_id = Integer.parseInt(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),0).toString());
+        
+        //Dados dos items comprados
+        ItemVenda item = new ItemVenda();
+        ItemVendaDAO dao_item = new ItemVendaDAO();
+        List<ItemVenda> listaitens = dao_item.listaItensPorVenda(venda_id);
+        
+        DefaultTableModel dados = (DefaultTableModel)tela.tabelaItensVendidos.getModel();
+        dados.setNumRows(0);
+        
+        for(ItemVenda c : listaitens){
+            dados.addRow(new Object[]{
+
+                c.getProduto().getDescrição(),
+                c.getQtd(),
+                c.getProduto().getPreco(),
+                c.getSubtotal()
+            });
+        }
         
         tela.setVisible(true);
     }//GEN-LAST:event_tabelaHistoricoMouseClicked

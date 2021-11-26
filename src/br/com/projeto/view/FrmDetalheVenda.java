@@ -50,7 +50,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtobsvenda = new javax.swing.JTextArea();
         txtdatavenda = new javax.swing.JFormattedTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         tabelaItensVendidos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -176,21 +176,15 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        tabelaItensVendidos.setAutoCreateColumnsFromModel(false);
         tabelaItensVendidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Produto", "Quantidade Comprada", "Valor", "Subtotal"
+                "Produto", "Quantidade Comprada", "Valor", "Subtotal"
             }
         ));
-        tabelaItensVendidos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaItensVendidosMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabelaItensVendidos);
+        jScrollPane3.setViewportView(tabelaItensVendidos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,7 +195,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane3))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -211,8 +205,8 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -226,10 +220,6 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private void txttotaldavendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotaldavendaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txttotaldavendaActionPerformed
-
-    private void tabelaItensVendidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItensVendidosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelaItensVendidosMouseClicked
 
     private void txtdatavendaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdatavendaKeyPressed
 
@@ -279,8 +269,8 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JTable tabelaItensVendidos;
     public javax.swing.JTextField txtcliente;
     public javax.swing.JFormattedTextField txtdatavenda;
