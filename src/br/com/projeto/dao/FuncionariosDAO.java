@@ -322,15 +322,34 @@ public class FuncionariosDAO {
 
             if (rs.next()){
                 //Usuario logou
-                JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema ");
-                
-                //Se efetuar o login mudar para a tela de menu
-                FrmMenu tela = new FrmMenu();
-                
-                //pegar no banco de dados o campo com o nome do usuario que fez o login
-                tela.usuarioLogado = rs.getString("nome");
-                
-                tela.setVisible(true);
+
+
+                //Caso o usuario seja do tipo admin
+                if (rs.getString("nivel_acesso").equals("Admin")){
+
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema ");
+                    //Se efetuar o login mudar para a tela de menu
+                    FrmMenu tela = new FrmMenu();
+                    //pegar no banco de dados o campo com o nome do usuario que fez o login
+                    tela.usuarioLogado = rs.getString("nome");
+                    tela.setVisible(true);
+
+                }
+                //Caso o usuario seja do tipo limitado
+                else  if (rs.getString("nivel_acesso").equals("Usuário")){
+
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema ");
+                    FrmMenu tela = new FrmMenu();
+                    tela.usuarioLogado = rs.getString("nome");
+
+                    //Desabilitar os menus
+                    tela.menu_posicao.setEnabled(false);
+                    tela.menu_controlevendas.setVisible(false);
+
+                    tela.setVisible(true);
+                }
+
+
             }else {
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null, "Dados incorretos, Favor verificar dados informados!");
