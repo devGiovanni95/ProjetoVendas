@@ -133,6 +133,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu1.setText("Clientes");
 
         menu_controlecliente.setText("Controle de Clientes");
+        menu_controlecliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_controleclienteActionPerformed(evt);
+            }
+        });
         jMenu1.add(menu_controlecliente);
 
         jMenuBar1.add(jMenu1);
@@ -141,6 +146,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu2.setText("Funcionários");
 
         menu_controlefuncionario.setText("Controle de Funcionários");
+        menu_controlefuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_controlefuncionarioActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_controlefuncionario);
 
         jMenuBar1.add(jMenu2);
@@ -149,6 +159,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu3.setText("Fornecedores");
 
         menu_controlefornecedor.setText("Controle de Fornecedores");
+        menu_controlefornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_controlefornecedorActionPerformed(evt);
+            }
+        });
         jMenu3.add(menu_controlefornecedor);
 
         jMenuBar1.add(jMenu3);
@@ -157,9 +172,19 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu7.setText("Produtos");
 
         menu_controleestoque.setText("Controle de  Estoque");
+        menu_controleestoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_controleestoqueActionPerformed(evt);
+            }
+        });
         jMenu7.add(menu_controleestoque);
 
         menu_consultaprodutos.setText("Consulta de Produtos");
+        menu_consultaprodutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_consultaprodutosActionPerformed(evt);
+            }
+        });
         jMenu7.add(menu_consultaprodutos);
 
         jMenuBar1.add(jMenu7);
@@ -176,9 +201,19 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu4.add(menu_abrirpdv);
 
         menu_posicao.setText("Posição do dia");
+        menu_posicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_posicaoActionPerformed(evt);
+            }
+        });
         jMenu4.add(menu_posicao);
 
         menu_controlevendas.setText("Histórico de Vendas");
+        menu_controlevendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_controlevendasActionPerformed(evt);
+            }
+        });
         jMenu4.add(menu_controlevendas);
 
         jMenuBar1.add(jMenu4);
@@ -226,7 +261,9 @@ public class FrmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menu_abrirpdvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_abrirpdvActionPerformed
-        // TODO add your handling code here:
+         // Tela abrir pdv
+        FrmVendas tela = new FrmVendas();
+        tela.setVisible(true);
     }//GEN-LAST:event_menu_abrirpdvActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -261,6 +298,50 @@ public class FrmMenu extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_menu_sairdosistemaMouseClicked
+
+    private void menu_consultaprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_consultaprodutosActionPerformed
+        // Menu consulta de produto
+        FrmProdutos tela = new FrmProdutos();
+        tela.jTabbedPane1.setSelectedIndex(1);//selecionar a aba de consulta e nao a primeira
+        tela.setVisible(true);
+        
+    }//GEN-LAST:event_menu_consultaprodutosActionPerformed
+
+    private void menu_controleclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controleclienteActionPerformed
+        // Tela clientes
+        Frmclientes tela = new Frmclientes();
+        tela.setVisible(true);
+
+    }//GEN-LAST:event_menu_controleclienteActionPerformed
+
+    private void menu_controlefuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controlefuncionarioActionPerformed
+        // Tela funcionarios
+        FrmFuncionarios tela = new FrmFuncionarios();
+        tela.setVisible(true);
+    }//GEN-LAST:event_menu_controlefuncionarioActionPerformed
+
+    private void menu_controlefornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controlefornecedorActionPerformed
+         // Tela fornecedores
+        FrmFornecedores tela = new FrmFornecedores();
+        tela.setVisible(true);
+    }//GEN-LAST:event_menu_controlefornecedorActionPerformed
+
+    private void menu_controleestoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controleestoqueActionPerformed
+         // Tela cadastro estoque
+
+    }//GEN-LAST:event_menu_controleestoqueActionPerformed
+
+    private void menu_posicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_posicaoActionPerformed
+         // Tela posição do dia
+        FrmTotalVenda tela = new FrmTotalVenda();
+        tela.setVisible(true);
+    }//GEN-LAST:event_menu_posicaoActionPerformed
+
+    private void menu_controlevendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controlevendasActionPerformed
+         // Tela historico de vendas
+        FrmHistorico tela = new FrmHistorico();
+        tela.setVisible(true);
+    }//GEN-LAST:event_menu_controlevendasActionPerformed
 
     /**
      * @param args the command line arguments

@@ -159,7 +159,15 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtemailActionPerformed
 
     private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
-        // TODO add your handling code here:
+       // Botao cancelar do sistema
+        
+        int op;
+        
+        op = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja sair ?");
+        
+        if(op == 0){
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnsairActionPerformed
 
     private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
