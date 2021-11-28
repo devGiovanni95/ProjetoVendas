@@ -88,7 +88,7 @@ public class VendasDAO {
                     + "inner join tb_clientes as c on (v.cliente_id = c.id) where v.data_venda BETWEEN ? AND ? ";*/
 
             //com a data formatada
-              String sql = "select v.id, date_format(v.data_venda, '%d%m%Y') as data_formatada, c.nome, v.total_venda, v.observacoes from tb_vendas as v "
+              String sql = "select v.id, date_format(v.data_venda, '%d/%m/%Y') as data_formatada, c.nome, v.total_venda, v.observacoes from tb_vendas as v "
                     + "inner join tb_clientes as c on (v.cliente_id = c.id) where v.data_venda BETWEEN ? AND ? ";
 
             
