@@ -328,6 +328,8 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void menu_controleestoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controleestoqueActionPerformed
          // Tela cadastro estoque
+         FrmEstoque tela = new FrmEstoque();
+         tela.setVisible(true);
 
     }//GEN-LAST:event_menu_controleestoqueActionPerformed
 
