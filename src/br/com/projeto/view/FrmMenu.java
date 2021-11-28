@@ -330,6 +330,7 @@ public class FrmMenu extends javax.swing.JFrame {
          // Tela cadastro estoque
          FrmEstoque tela = new FrmEstoque();
          tela.setVisible(true);
+         
 
     }//GEN-LAST:event_menu_controleestoqueActionPerformed
 

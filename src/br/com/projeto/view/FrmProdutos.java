@@ -94,6 +94,8 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Produtos");
+        setMaximumSize(new java.awt.Dimension(900, 900));
+        setPreferredSize(new java.awt.Dimension(1080, 650));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
