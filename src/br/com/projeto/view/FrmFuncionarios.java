@@ -289,7 +289,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jLabel18.setText("Nivel de Acesso:");
 
         cbnivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbnivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuário ", "Administrador" }));
+        cbnivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuário", "Administrador" }));
         cbnivel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbnivelActionPerformed(evt);

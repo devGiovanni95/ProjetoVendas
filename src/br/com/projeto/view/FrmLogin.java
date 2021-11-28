@@ -184,7 +184,7 @@ public class FrmLogin extends javax.swing.JFrame {
             dao.efetuarLogin(email, senha);
             
             //Comando para esconder a tela assim que abrir a de menu
-            this.dispose();
+            //this.dispose();
             //depois disto precisamos clicar na tela que criamos de login e mudar a propriedade(defaultCloseOperation) para  (DISPOSE)
             
         } catch (Exception e) {

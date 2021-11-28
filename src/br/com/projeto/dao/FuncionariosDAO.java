@@ -73,7 +73,7 @@ public class FuncionariosDAO {
 
     }
 
-    //Metodo listar todos od funcionarios
+    //Metodo listar todos os funcionarios
     public List<Funcionarios> listarFuncionarios() {
 
         try {
@@ -322,10 +322,18 @@ public class FuncionariosDAO {
 
             if (rs.next()){
                 //Usuario logou
+                
+            /*        JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema ");
+                    //Se efetuar o login mudar para a tela de menu
+                    FrmMenu tela = new FrmMenu();
+                    //pegar no banco de dados o campo com o nome do usuario que fez o login
+                    tela.usuarioLogado = rs.getString("nome");
+                    tela.setVisible(true);*/
+
 
 
                 //Caso o usuario seja do tipo admin
-                if (rs.getString("nivel_acesso").equals("Admin")){
+                if (rs.getString("nivel_acesso").equals("Administrador")){
 
                     JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema ");
                     //Se efetuar o login mudar para a tela de menu
