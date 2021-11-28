@@ -281,6 +281,9 @@ public class ProdutosDAO {
 
         }
     }
+    
+    
+    
 
     //Metodo Excluir Produtos
     public void excluir(Produtos obj) {
@@ -308,6 +311,28 @@ public class ProdutosDAO {
 
     //Metodo que atualiza e dá as devidas baixas no estoque conforme as vendas
     public void baixaEstoque(int id, int qtd_nova) {
+        try {
+
+            //1 passo criar comando sql para atualizar a quantidade de produtos no estoque
+            String sql = "update tb_produtos set qtd_estoque = ? where id = ? ";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+
+        }
+    }
+  
+    
+//Metodo que atualiza e dá as devidas entradas no estoque conforme as vendas
+    public void adicionarEstoque(int id, int qtd_nova) {
         try {
 
             //1 passo criar comando sql para atualizar a quantidade de produtos no estoque

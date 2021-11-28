@@ -3,17 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmHistorico.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmLogin.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmDetalheVenda.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmMenu.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmPagamentos.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmTotalVenda.java</file>
+            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmEstoque.java</file>
             <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmProdutos.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmFornecedores.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmFuncionarios.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/Frmclientes.java</file>
-            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/view/FrmVendas.java</file>
+            <file>file:/F:/ProjetosJava/teste/ProjetoVendas/src/br/com/projeto/dao/ProdutosDAO.java</file>
         </group>
     </open-files>
 </project-private>

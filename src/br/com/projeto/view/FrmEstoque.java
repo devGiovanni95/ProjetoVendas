@@ -22,10 +22,12 @@ import java.util.List;
  */
 public class FrmEstoque extends javax.swing.JFrame {
 
+    int idproduto, qtd_nova;
+
     /**
      * Creates new form FrmHistorico
      */
-     //Metodo Listar na tabela
+    //Metodo Listar na tabela
     public void listar() {
 
         ProdutosDAO dao = new ProdutosDAO();
@@ -46,11 +48,10 @@ public class FrmEstoque extends javax.swing.JFrame {
         }
 
     }
-    
-    
+
     public FrmEstoque() {
         initComponents();
-                this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(Color.WHITE);
 
     }
 
@@ -181,7 +182,7 @@ public class FrmEstoque extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnpesquisarestoque, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnadicionarestoque, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,7 +276,7 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_txtquantidadeActionPerformed
 
     private void btnpesquisarestoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarestoqueActionPerformed
-      // Botao pesquisar/reaproveitado do Frmprodutos
+        // Botao pesquisar/reaproveitado do Frmprodutos
         String nome = "%" + txtdescricaoproduto.getText() + "%";
 
         ProdutosDAO dao = new ProdutosDAO();
@@ -297,7 +298,27 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_btnpesquisarestoqueActionPerformed
 
     private void btnadicionarestoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadicionarestoqueActionPerformed
-        // TODO add your handling code here:
+        // Botao adicionar
+
+        try {
+            int qtd_estoque, qtd;
+            
+            qtd_estoque = Integer.parseInt(txtestoqueatual.getText());
+            
+            qtd = Integer.parseInt(txtquantidade.getText());
+            
+            qtd_nova = qtd_estoque + qtd;
+            
+            ProdutosDAO dao = new ProdutosDAO();
+            
+            dao.adicionarEstoque(idproduto,qtd_nova);
+            
+            JOptionPane.showMessageDialog(null,"Estoque de Produto Atualizado!");
+            
+        } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null,"Selecione o produto ou informe a nova quantidade!" + e);
+
+        }
     }//GEN-LAST:event_btnadicionarestoqueActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -306,9 +327,14 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void tabelaconsultadeprodutoestoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaconsultadeprodutoestoqueMouseClicked
+
+        //pegar o id passando para a variavel publica
+        idproduto = Integer.parseInt(tabelaconsultadeprodutoestoque.getValueAt(tabelaconsultadeprodutoestoque.getSelectedRow(), 0).toString());
+        txtdescricaoproduto.setText(tabelaconsultadeprodutoestoque.getValueAt(tabelaconsultadeprodutoestoque.getSelectedRow(), 1).toString());
+
         // Pegar dados
         txtestoqueatual.setText(tabelaconsultadeprodutoestoque.getValueAt(tabelaconsultadeprodutoestoque.getSelectedRow(), 3).toString());
-        
+
     }//GEN-LAST:event_tabelaconsultadeprodutoestoqueMouseClicked
 
     /**
